@@ -7,7 +7,9 @@ import { MarkdownDisplay } from "./MarkdownDisplay.react";
 interface Props {}
 
 export const Home = ({}: Props) => {
-    const [content, setContent] = useState<string>("*bold* and _italic_");
+    const [content, setContent] = useState<string>(
+        "*bold* and _italic_ and ~strikethrough~"
+    );
 
     return (
         <Container>
