@@ -8,7 +8,14 @@ interface Props {}
 
 export const Home = ({}: Props) => {
     const [content, setContent] = useState<string>(
-        "*bold* and _italic_ and ~strikethrough~"
+        "*bold* and _italic_ and ~strikethrough~  \n" +
+            "**normal** and __normal__  \n" +
+            "\n" +
+            "this should be a diff D123456  \n" +
+            "\n" +
+            "this should be a task T432342  \n" +
+            "\n" +
+            "this should be a mention @{Jacek}  \n"
     );
 
     return (
