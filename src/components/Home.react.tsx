@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { Container, Row, Col, FormControl } from "react-bootstrap";
 
-import { MarkdownDisplay } from "./MarkdownDisplay.react";
+import { MarkdownUnified } from "./MarkdownUnified.react";
 
 interface Props {}
 
@@ -13,9 +13,13 @@ export const Home = ({}: Props) => {
             "\n" +
             "this should be a diff D123456  \n" +
             "\n" +
-            "this should be a task T432342  \n" +
+            "this should be a mention @{Jacek}  \n" +
             "\n" +
-            "this should be a mention @{Jacek}  \n"
+            "```\n" +
+            "this is a code block\n" +
+            "```\n" +
+            "this should be a link [google](https://www.google.com)  \n" +
+            "\n"
     );
 
     return (
@@ -30,7 +34,7 @@ export const Home = ({}: Props) => {
                     ></FormControl>
                 </Col>
                 <Col style={{ overflowY: "scroll" }}>
-                    <MarkdownDisplay content={content} />
+                    <MarkdownUnified content={content} />
                 </Col>
             </Row>
         </Container>

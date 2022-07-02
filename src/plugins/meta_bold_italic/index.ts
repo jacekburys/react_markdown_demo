@@ -5,17 +5,8 @@ import { is, Test } from "unist-util-is";
 import { source } from "unist-util-source";
 import { Root, Strong, Emphasis, Text } from "mdast";
 
-/*
-export const plugin: () => Plugin<any[], Root, Root> = () => {
-    return (tree: Node): void | Transformer<Root, Root> => {
-        console.log(tree);
-        return {};
-    };
-};
-*/
-
-export function plugin(): Plugin<any[], Root, Root> {
-    return (root: any, vfile) => {
+const plugin: Plugin<any[], Root> = function (this) {
+    return (root: any, vfile: any) => {
         visit(root, "strong", (node: Strong | Text) => {
             const sourceText = source(node, vfile);
             if (sourceText == null) {
@@ -35,4 +26,6 @@ export function plugin(): Plugin<any[], Root, Root> {
             }
         });
     };
-}
+};
+
+export { plugin };
